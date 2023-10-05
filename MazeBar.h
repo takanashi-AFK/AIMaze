@@ -1,9 +1,12 @@
 #pragma once
-#include<vector>
-#include<iostream>
+#include "Maze.h"
 using namespace std;
-namespace MazeBar
+
+class  MazeBar: public Maze
 {
-	void Initialize(int _Width, int _Height);
+public:
+	MazeBar(int Width,int Height);
+	void BarInitialize();
+	void KnockDownThePole();
 };
 

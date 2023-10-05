@@ -1,21 +1,25 @@
 #include "MazeBar.h"
-
-
-void MazeBar::Initialize(int _Width, int _Height)
+MazeBar::MazeBar(int Width, int Height):Maze(Width,Height)
 {
+}
 
-	vector<vector<int>> MapTable(_Width, vector<int>(_Height, 0));
-	for (int h = 1;h < _Height; h++)
-	{
-		cout << endl;
-		for (int w = 1; w < _Width; w++)
+void MazeBar::BarInitialize()
+{
+	for (int h = 0; h < Height_; h++)
+	{	
+		for (int w = 0; w < Width_; w++)
 		{
-			if (w == 1 || w == _Width-1)
-				MapTable[w][h] = 1;
-			else
-				MapTable[w][h] = 0;
-
-			cout << MapTable[w][h];
+			if (w % 2 == 0 && h % 2 == 0)
+				SetBrock(h, w);
 		}
 	}
 }
+;
+
+void MazeBar::KnockDownThePole()
+{
+	//棒のポジションを取る
+	//その位置から上下左右4点取る
+}
+
+
