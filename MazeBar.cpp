@@ -28,6 +28,7 @@ void MazeBar::KnockDownThePole()
 
 	for (int h = 0; h < Height_; h++)
 	{
+		cout << endl;
 		for (int w = 0; w < Width_; w++)
 		{
 			//‚à‚µ–_‚ÌˆÊ’u‚¾‚Á‚½‚ç
@@ -55,13 +56,13 @@ void MazeBar::KnockDownThePole()
 								flag = true;
 								break;
 							case 2://‰º
-								if (IsWall(w, h - 1))continue;
-								SetBlock(w, h - 1);
+								if (IsWall(w, h + 1))continue;
+								SetBlock(w, h + 1);
 								flag = true;
 								break;
 							case 3://ã
-								if (IsWall(w, h + 1))continue;
-								SetBlock(w, h + 1);
+								if (IsWall(w, h - 1))continue;
+								SetBlock(w, h - 1);
 								flag = true;
 								break;
 							}
@@ -85,8 +86,8 @@ void MazeBar::KnockDownThePole()
 								flag = true;
 								break;
 							case 2://‰º
-								if (IsWall(w, h - 1))continue;
-								SetBlock(w, h - 1);
+								if (IsWall(w, h + 1))continue;
+								SetBlock(w, h + 1);
 								flag = true;
 								break;
 
@@ -95,6 +96,7 @@ void MazeBar::KnockDownThePole()
 					}
 				}
 			}
+		
 		}
 	}
 }
