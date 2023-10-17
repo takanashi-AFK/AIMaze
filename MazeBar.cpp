@@ -83,7 +83,6 @@ void MazeBar::BarInitialize()
 					}
 				}
 			}
-
 		}
 	}
 }
