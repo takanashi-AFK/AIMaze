@@ -5,8 +5,8 @@
 #include"Maze.h"
 
 using namespace std;
-const int MAPWIDTH = 15;
-const int MAPHEIGHT =15;
+const int MAPWIDTH = 51;
+const int MAPHEIGHT =51;
 
 int main()
 {
