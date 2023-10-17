@@ -12,6 +12,8 @@ void Maze::SetBrock(int _Height, int _Width)
 	MapTable[_Height][_Width] = WALL;
 }
 
+
+
 void Maze::PrintMaze()
 {
 	for (int h = 0; h < Height_; h++)
@@ -38,6 +40,13 @@ void Maze::MazeInitialize()
 				SetBrock(h,w);
 		}
 	}
+}
+
+bool Maze::IsWall(int w, int h)
+{
+	if (MapTable[w][h] == WALL)
+		return true;
+	return false;
 }
 
 

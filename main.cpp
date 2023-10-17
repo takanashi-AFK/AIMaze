@@ -10,9 +10,12 @@ const int MAPHEIGHT = 15;
 
 int main()
 {
+	srand(time(NULL));
+
 	MazeBar* bar = new MazeBar(MAPWIDTH, MAPHEIGHT);
 	bar->MazeInitialize();
 	bar->BarInitialize();
+	bar->KnockDownThePole();
 	bar->PrintMaze();
 	delete bar;
 }
