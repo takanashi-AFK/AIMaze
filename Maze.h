@@ -15,7 +15,7 @@ class Maze
 	int Height_ = 0;
 
 	std::vector<std::vector<int>> MapTable;
-	void SetBrock(int _Width, int _Height);
+	void SetBlock(int _Width, int _Height);
 	//void SetBrock(std::vector<std::vector<int>> _MapTable);
 	void PrintMaze();
 	void MazeInitialize();

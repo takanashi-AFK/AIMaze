@@ -10,7 +10,7 @@ void MazeBar::BarInitialize()
 		for (int w = 0; w < Width_; w++)
 		{
 			if (w % 2 == 0 && h % 2 == 0)
-				SetBrock(h, w);
+				SetBlock(h, w);
 		}
 	}
 
@@ -21,19 +21,71 @@ void MazeBar::BarInitialize()
 			//‚à‚µ–_‚ÌˆÊ’u‚¾‚Á‚½‚ç
 			if (w % 2 == 0 && h % 2 == 0)
 			{
-				if (w >= 1 && w < Width_ - 1 && h >= 1 && h < Height_)
+				if (w >= 1 && w < Width_ - 1 && h >= 1 && h < Height_-1)
 				{
+					bool flag = false;
 					//ˆê”Ôã‚¾‚Á‚½‚ç
-					if (w == 2 && h == 2)
+					if (h == 2)
 					{
-						int randum = rand() % 4;
-
+						while (!flag)
+						{
+							int randam = rand() % 4;
+							switch (randam)
+							{
+							case 0://‰E
+								if (IsWall(w + 1, h))continue;
+								SetBlock(w + 1, h);
+								flag = true;
+								break;
+							case 1://¶
+								if (IsWall(w - 1, h))continue;
+								SetBlock(w - 1, h);
+								flag = true;
+								break;
+							case 2://‰º
+								if (IsWall(w, h - 1))continue;
+								SetBlock(w, h - 1);
+								flag = true;
+								break;
+							case 3://ã
+								if (IsWall(w, h + 1))continue;
+								SetBlock(w, h + 1);
+								flag = true;
+								break;
+							}
+						}
+					}
+					else
+					{
+						while (!flag)
+						{
+							int randam = rand() % 3;
+							switch (randam)
+							{
+							case 0://‰E
+								if (IsWall(w + 1, h))continue;
+								SetBlock(w + 1, h);
+								flag = true;
+								break;
+							case 1://¶
+								if (IsWall(w - 1, h))continue;
+								SetBlock(w - 1, h);
+								flag = true;
+								break;
+							case 2://‰º
+								if (IsWall(w, h - 1))continue;
+								SetBlock(w, h - 1);
+								flag = true;
+								break;
+								
+							}
+						}
 					}
 				}
 			}
+
 		}
 	}
-
 }
 ;
 
@@ -59,7 +111,6 @@ void MazeBar::KnockDownThePole()
 					if (w == 2 && h == 2)
 					{
 						int randum = rand() % 4;
-
 					}
 				}
 			}

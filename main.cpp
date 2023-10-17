@@ -6,7 +6,7 @@
 
 using namespace std;
 const int MAPWIDTH = 15;
-const int MAPHEIGHT = 15;
+const int MAPHEIGHT =15;
 
 int main()
 {
@@ -15,7 +15,6 @@ int main()
 	MazeBar* bar = new MazeBar(MAPWIDTH, MAPHEIGHT);
 	bar->MazeInitialize();
 	bar->BarInitialize();
-	bar->KnockDownThePole();
 	bar->PrintMaze();
 	delete bar;
 }
