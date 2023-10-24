@@ -20,6 +20,7 @@ class WallStretching : public Maze
 {
 public:
 	WallStretching(int Width, int Height);
+	~WallStretching();
 	void CreateWallStretching();
 private:
 	/// <summary>

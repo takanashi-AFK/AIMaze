@@ -12,9 +12,16 @@ WallStretching::WallStretching(int Width, int Height): Maze(Width, Height)
 				{
 					temp = {w,h};
 					evenPosList.push_back(temp);
+					
 				}
 		}
 	}
+}
+
+WallStretching::~WallStretching()
+{
+	evenPosList.clear();
+	currentWallCells.clear();
 }
 
 void WallStretching::CreateWallStretching()
@@ -41,6 +48,7 @@ void WallStretching::CreateWallStretching()
 void WallStretching::ExtendWall(int x, int y)
 {
 	vector<int>directions;
+
 	//次のブロックがFLOORか？次の次のブロックは伸ばしてる最中のやつか？
 	if (MapTable[x][y - 1] == FLOOR && !IsCurrentWall(x, y - 2))//上
 		directions.push_back(Up);
@@ -90,6 +98,7 @@ void WallStretching::ExtendWall(int x, int y)
 		{
 			// 既存の壁に接続できていない場合は拡張続行
 			ExtendWall(x, y);
+
 		}
 	}	
 		else
@@ -104,8 +113,6 @@ void WallStretching::ExtendWall(int x, int y)
 	{ 
 		if (!currentWallCells.empty())
 		for (auto& wall : currentWallCells) {
-	
-			
 			if (wall.xPos == x && wall.yPos == y)
 				return true;
 		}
@@ -118,6 +125,6 @@ void WallStretching::SetWall(int x, int y)
 	if (x % 2 == 0 && y % 2 == 0)//偶数だったらリストに追加
 	{
 		tempCell = { x,y };
-		currentWallCells.push_back(tempCell);
 	}
+		currentWallCells.push_back(tempCell);
 }

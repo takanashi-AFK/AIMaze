@@ -10,6 +10,7 @@ class Maze
 	public:
 	Maze() {};
 	Maze(int _Width, int _Height);
+	~Maze();
 
 	int Width_ = 0;
 	int Height_ = 0;

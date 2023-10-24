@@ -7,6 +7,13 @@ Maze::Maze(int _Width, int _Height)
 	Width_ = _Width;
 	Height_ = _Height;
 }
+Maze::~Maze()
+{
+	for (int i = 0; i < MapTable.size(); ++i) {
+		MapTable[i].clear();
+	}
+	MapTable.clear();
+}
 void Maze::SetBlock(int _Height, int _Width)
 {
 	MapTable[_Height][_Width] = WALL;
