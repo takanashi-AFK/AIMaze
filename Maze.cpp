@@ -36,7 +36,7 @@ void Maze::MazeInitialize()
 	{
 		for (int w = 0; w < Width_; w++)
 		{
-			if (w == 0 || w == Width_ - 1 || h == 0 || h == Height_ - 1)
+			if (w == 0 || w == Width_ - 1 || h == 0 || h == Height_ - 1)//ŠOŽü‚¾‚Á‚½‚ç
 				SetBlock(h,w);
 		}
 	}

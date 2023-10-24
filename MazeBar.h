@@ -8,5 +8,6 @@ public:
 	MazeBar(int Width,int Height);
 	void BarInitialize();
 	void KnockDownThePole();
+	bool IsOuterWall();
 };
 
