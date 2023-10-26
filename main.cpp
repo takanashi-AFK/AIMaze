@@ -42,10 +42,10 @@ int main()
 	//bar->PrintMaze();
 	//delete bar;
 
-	//WallStretching* wst = new WallStretching(MAPWIDTH, MAPHEIGHT);
-	//wst->MazeInitialize();
-	//wst->CreateWallStretching();
-	//wst->PrintMaze();
-	//delete wst;
+	WallStretching* wst = new WallStretching(MAPWIDTH, MAPHEIGHT);
+	wst->MazeInitialize();
+	wst->CreateWallStretching();
+	wst->PrintMaze();
+	delete wst;
 
 }

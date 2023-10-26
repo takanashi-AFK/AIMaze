@@ -12,7 +12,6 @@ WallStretching::WallStretching(int Width, int Height): Maze(Width, Height)
 				{
 					temp = {w,h};
 					evenPosList.push_back(temp);
-					
 				}
 		}
 	}
@@ -45,6 +44,8 @@ void WallStretching::CreateWallStretching()
 //ランダムに１マス伸ばす
 //CurrentWallCellsに伸ばした位置を追加
 //もしCurrentWallCellsにぶつかったら,一ますもどって再抽選
+
+//ここの再起処理が原因でstafck over flow発生 
 void WallStretching::ExtendWall(int x, int y)
 {
 	vector<int>directions;
@@ -104,7 +105,7 @@ void WallStretching::ExtendWall(int x, int y)
 		else
 		{
 			// すべて現在拡張中の壁にぶつかる場合、バックして再開
-			cell  beforeCell = currentWallCells[0];
+		cell  beforeCell = currentWallCells[sizeof(currentWallCells)-1];
 			ExtendWall(beforeCell.xPos, beforeCell.yPos);
 		}
 }

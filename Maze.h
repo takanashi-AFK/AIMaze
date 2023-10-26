@@ -20,7 +20,6 @@ class Maze
 	//void SetBrock(std::vector<std::vector<int>> _MapTable);
 	void PrintMaze();
 	void MazeInitialize();
-	void VectorInitialize(int _Width, int _Height);
 	bool IsWall(int w , int h);
 };
 
