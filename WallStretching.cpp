@@ -11,7 +11,7 @@ WallStretching::WallStretching(int Width, int Height): Maze(Width, Height)
 				if (w % 2 == 0 && h % 2 == 0)//‹ô”ˆÊ’u‚¾‚Á‚½‚çƒŠƒXƒg‚É’Ç‰Á
 				{
 					temp = {w,h};
-					evenPosList.push_back(temp);
+					evenPosList.push_back(cell(0,0));
 				}
 		}
 	}

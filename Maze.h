@@ -5,6 +5,23 @@ using namespace std;
 const int  WALL = 1;
 const int FLOOR = 0;
 
+struct cell
+{
+	cell() {};
+	cell(int x, int y) { x = xPos; y = yPos; }
+	int xPos = 0;
+	int yPos = 0;
+};
+
+enum Direction
+{
+	Up = 0,
+	Right = 1,
+	Down = 2,
+	Left = 3
+};
+
+
 class Maze
 {
 	public:

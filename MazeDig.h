@@ -2,21 +2,9 @@
 #include<vector>
 #include<list>
 #include"Maze.h"
+#include"WallStretching.h"
 using std::vector;
 using std::list;
-
-struct cell
-{
-	int xPos = 0;
-	int yPos = 0;
-};
-enum Direction
-{
-	Up = 0,
-	Right = 1,
-	Down = 2,
-	Left = 3
-};
 
 
 class MazeDig:public Maze
@@ -27,11 +15,17 @@ public:
 	~MazeDig();
 
 	void Dig(int x, int y);
+	void CreateMaze();
 
 private:
 	vector <cell> StartCells;
+	vector <cell> currentCells;
 	void SetFloor(int x, int y);
+	cell GetStartCell();
 
+	cell temp;
 
+	int height_;
+	int width_;
 };
 

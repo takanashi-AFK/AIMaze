@@ -4,9 +4,10 @@
 #include"MazeBar.h"
 #include"Maze.h"
 #include"WallStretching.h"
+#include "MazeDig.h"
 using namespace std;
-const int MAPWIDTH  = 41;
-const int MAPHEIGHT = 41;
+const int MAPWIDTH  = 11;
+const int MAPHEIGHT = 11;
 
 int main()
 {
@@ -42,10 +43,15 @@ int main()
 	//bar->PrintMaze();
 	//delete bar;
 
-	WallStretching* wst = new WallStretching(MAPWIDTH, MAPHEIGHT);
+	/*WallStretching* wst = new WallStretching(MAPWIDTH, MAPHEIGHT);
 	wst->MazeInitialize();
 	wst->CreateWallStretching();
 	wst->PrintMaze();
-	delete wst;
+	delete wst;*/
+	MazeDig *dig = new MazeDig(MAPWIDTH, MAPHEIGHT);
+	dig->CreateMaze();
+	dig->PrintMaze();
+	delete dig;
+
 
 }
