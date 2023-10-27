@@ -6,8 +6,8 @@
 #include"WallStretching.h"
 #include "MazeDig.h"
 using namespace std;
-const int MAPWIDTH  = 11;
-const int MAPHEIGHT = 11;
+const int MAPWIDTH  = 51;
+const int MAPHEIGHT = 51;
 
 int main()
 {

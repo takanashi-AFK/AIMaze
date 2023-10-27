@@ -24,9 +24,6 @@
     <ClCompile Include="Maze.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="ソース.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="WallStretching.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>

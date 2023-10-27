@@ -132,7 +132,6 @@
     <ClCompile Include="MazeBar.cpp" />
     <ClCompile Include="MazeDig.cpp" />
     <ClCompile Include="WallStretching.cpp" />
-    <ClCompile Include="ソース.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Maze.h" />

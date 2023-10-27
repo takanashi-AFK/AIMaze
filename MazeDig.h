@@ -21,6 +21,7 @@ private:
 	vector <cell> StartCells;
 	vector <cell> currentCells;
 	void SetFloor(int x, int y);
+	void InitMazeDig();
 	cell GetStartCell();
 
 	cell temp;

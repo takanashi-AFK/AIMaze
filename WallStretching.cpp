@@ -2,7 +2,6 @@
 
 WallStretching::WallStretching(int Width, int Height): Maze(Width, Height)
 {
-	cell temp = {0,0};
 	for (int h = 0; h < Height_; h++)
 	{
 		for (int w = 0; w < Width_; w++)
@@ -10,8 +9,7 @@ WallStretching::WallStretching(int Width, int Height): Maze(Width, Height)
 			if (w >= 1 && w < Width_ - 1 && h >= 1 && h < Height_ - 1)//外壁じゃなくて
 				if (w % 2 == 0 && h % 2 == 0)//偶数位置だったらリストに追加
 				{
-					temp = {w,h};
-					evenPosList.push_back(cell(0,0));
+					evenPosList.push_back(cell(w,h));
 				}
 		}
 	}

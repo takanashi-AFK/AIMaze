@@ -7,10 +7,10 @@ const int FLOOR = 0;
 
 struct cell
 {
+	int xPos=0;
+	int yPos=0;
 	cell() {};
-	cell(int x, int y) { x = xPos; y = yPos; }
-	int xPos = 0;
-	int yPos = 0;
+	cell(int x, int y) { xPos =x ; yPos =y; }
 };
 
 enum Direction

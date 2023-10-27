@@ -2,17 +2,22 @@
 
 MazeDig::MazeDig()
 {
-    width_ = 0;
-    height_ = 0;
 }
 
 MazeDig::MazeDig(int width, int height): Maze(width, height)
 {
     width_ = width;
     height_ = height;
+}
 
-    // 全てを壁で埋める
-         // 穴掘り開始候補(x,yともに偶数)座標を保持しておく
+MazeDig::~MazeDig()
+{
+}
+
+void MazeDig::InitMazeDig()
+{
+        // 全てを壁で埋める
+            // 穴掘り開始候補(x,yともに偶数)座標を保持しておく
     for (int y = 0; y < height_; y++)
     {
         for (int x = 0; x < width_; x++)
@@ -23,23 +28,18 @@ MazeDig::MazeDig(int width, int height): Maze(width, height)
             }
             else
             {
-                if (width_ % 2 == 1 && height_ % 2 == 1)
-                    StartCells.push_back({x,y});
+                if (x % 2 == 1 && y % 2 == 1 && width_ % 2 == 1 && height_ % 2 == 1) {
+
+                    StartCells.push_back(cell(x,y));
+                }
                 MapTable[x][y] = WALL;
             }
         }
     }
 }
 
-MazeDig::~MazeDig()
-{
-}
-
-
 void MazeDig::Dig(int x, int y)
 {
-    if(StartCells.size()!=0)
-    int random = rand() % StartCells.size();
 
     while (true)
     {
@@ -86,16 +86,15 @@ void MazeDig::Dig(int x, int y)
     // どこにも掘り進められない場合、穴掘り開始候補座標から掘りなおし
           // 候補座標が存在しないとき、穴掘り完了
     cell startPos = GetStartCell();
-    if (startPos.xPos != 0||startPos.yPos != 0)
+    if (startPos.xPos != -1||startPos.yPos != -1)
     {
         Dig(startPos.xPos, startPos.yPos);
     }
-
 }
 
 void MazeDig::CreateMaze()
 {
-
+    InitMazeDig();
    
     //うんたらかんたら穴掘りして
     Dig(1, 1);
@@ -123,9 +122,10 @@ void MazeDig::SetFloor(int x, int y)
     }
 }
 
+
 cell MazeDig::GetStartCell()
 {
-    if (StartCells.size() == 0) return {0,0};
+    if (StartCells.size() == 0) return {-1,-1};
 
     // ランダムに開始座標を取得する
     int index = rand() % StartCells.size();
