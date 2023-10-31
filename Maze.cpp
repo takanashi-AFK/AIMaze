@@ -6,6 +6,7 @@ Maze::Maze(int _Width, int _Height)
 	MapTable = vector<vector<int>>(_Height, vector<int>(_Width, 0));
 	Width_ = _Width;
 	Height_ = _Height;
+	
 }
 Maze::~Maze()
 {

@@ -3,6 +3,7 @@
 #include<vector>
 #include <algorithm>
 
+//たまにスタックオーバーフローする
 class WallStretching : public Maze
 {
 public:

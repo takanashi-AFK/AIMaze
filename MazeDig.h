@@ -6,7 +6,7 @@
 using std::vector;
 using std::list;
 
-
+//€‚É‚Ü‚­‚è```II
 class MazeDig:public Maze
 {
 public:

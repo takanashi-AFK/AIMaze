@@ -12,46 +12,37 @@ const int MAPHEIGHT = 51;
 int main()
 {
 	srand(time(NULL));
-	/*
+	
+	WallStretching* wst = new WallStretching(MAPWIDTH, MAPHEIGHT);
+	MazeBar * bar = new MazeBar(MAPWIDTH, MAPHEIGHT);
+	MazeDig *dig = new MazeDig(MAPWIDTH, MAPHEIGHT);
 	int mode = 0;
 	cin >> mode;
 
 	switch (mode)
 	{
 	case 0:
-		MazeBar * bar = new MazeBar(MAPWIDTH, MAPHEIGHT);
 		bar->MazeInitialize();
 		bar->BarInitialize();
 		bar->PrintMaze();
-		delete bar;
 		break;
 	case 1:
-		WallStretching* wst = new WallStretching(MAPWIDTH, MAPHEIGHT);
-	wst->MazeInitialize();
-	wst->CreateWallStretching();
-	wst->PrintMaze();
-	delete wst;
+		wst->MazeInitialize();
+		wst->CreateWallStretching();
+		wst->PrintMaze();
 		break;
 	case 2:
+		dig->CreateMaze();
+		dig->PrintMaze();
 		break;
 	}
-	*/
+	
 
-	//MazeBar* bar = new MazeBar(MAPWIDTH, MAPHEIGHT);
-	//bar->MazeInitialize();
-	//bar->BarInitialize();
-	//bar->PrintMaze();
-	//delete bar;
-
-	/*WallStretching* wst = new WallStretching(MAPWIDTH, MAPHEIGHT);
-	wst->MazeInitialize();
-	wst->CreateWallStretching();
-	wst->PrintMaze();
-	delete wst;*/
-	MazeDig *dig = new MazeDig(MAPWIDTH, MAPHEIGHT);
-	dig->CreateMaze();
-	dig->PrintMaze();
-	delete dig;
+		delete wst;
+		delete dig;	
+		delete bar;
+	
+	
 
 
 }

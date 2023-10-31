@@ -30,6 +30,7 @@ void WallStretching::CreateWallStretching()
 		evenPosList.erase(evenPosList.begin() + randomValue);//要素を削除
 		int x = processingCell.xPos;
 		int y = processingCell.yPos;
+
 		if (MapTable[x][y] == FLOOR)
 		{
 			currentWallCells.clear();
@@ -49,16 +50,16 @@ void WallStretching::ExtendWall(int x, int y)
 	vector<int>directions;
 
 	//次のブロックがFLOORか？次の次のブロックは伸ばしてる最中のやつか？
-	if (MapTable[x][y - 1] == FLOOR && !IsCurrentWall(x, y - 2))//上
+	if (MapTable.at(x).at(y-1) == FLOOR && !IsCurrentWall(x, y - 2))//上
 		directions.push_back(Up);
 
-	if (MapTable[x][y + 1] == FLOOR && !IsCurrentWall(x, y + 2))//下
+	if (MapTable.at(x).at(y+1) == FLOOR && !IsCurrentWall(x, y + 2))//下
 		directions.push_back(Down);
 
-	if (MapTable[x + 1][y] == FLOOR && !IsCurrentWall(x + 2, y))//右
+	if (MapTable.at(x+1).at(y) == FLOOR && !IsCurrentWall(x + 2, y))//右
 		directions.push_back(Right);
 
-	if (MapTable[x - 1][y] == FLOOR && !IsCurrentWall(x - 2, y))//左
+	if (MapTable.at(x-1).at(y) == FLOOR && !IsCurrentWall(x - 2, y))//左
 		directions.push_back(Left);
 
 	// ランダムに伸ばす(2マス)
@@ -103,7 +104,7 @@ void WallStretching::ExtendWall(int x, int y)
 		else
 		{
 			// すべて現在拡張中の壁にぶつかる場合、バックして再開
-		cell  beforeCell = currentWallCells[sizeof(currentWallCells)-1];
+		cell  beforeCell = currentWallCells.front();
 			ExtendWall(beforeCell.xPos, beforeCell.yPos);
 		}
 }
@@ -121,9 +122,6 @@ void WallStretching::ExtendWall(int x, int y)
 void WallStretching::SetWall(int x, int y)
 {
 	MapTable[x][y] = WALL;
-	if (x % 2 == 0 && y % 2 == 0)//偶数だったらリストに追加
-	{
-		tempCell = { x,y };
-	}
-		currentWallCells.push_back(tempCell);
+	currentWallCells.push_back(cell(x,y));
+	
 }
