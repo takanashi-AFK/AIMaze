@@ -16,7 +16,9 @@ int main()
 	WallStretching* wst = new WallStretching(MAPWIDTH, MAPHEIGHT);
 	MazeBar * bar = new MazeBar(MAPWIDTH, MAPHEIGHT);
 	MazeDig *dig = new MazeDig(MAPWIDTH, MAPHEIGHT);
+
 	int mode = 0;
+	cout << "0->–_“|‚µ,1->•ÇL‚Î‚µ(‚½‚Ü‚ÉƒGƒ‰[),2->ŒŠŒ@‚è(dead end)" << endl;
 	cin >> mode;
 
 	switch (mode)

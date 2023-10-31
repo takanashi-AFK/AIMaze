@@ -17,19 +17,17 @@ MazeDig::~MazeDig()
 void MazeDig::InitMazeDig()
 {
         // 全てを壁で埋める
-            // 穴掘り開始候補(x,yともに偶数)座標を保持しておく
+        // 穴掘り開始候補(x,yともに偶数)座標を保持しておく
     for (int y = 0; y < height_; y++)
     {
         for (int x = 0; x < width_; x++)
         {
-            if (x == 0 || y == 0 || x == width_ - 1 || y == height_ - 1)
-            {
+            if (x == 0 || y == 0 || x == width_ - 1 || y == height_ - 1){
                 MapTable[x][y] = FLOOR;  // 外壁は判定の為通路にしておく(最後に戻す)
             }
             else
             {
                 if (x % 2 == 1 && y % 2 == 1 && width_ % 2 == 1 && height_ % 2 == 1) {
-
                     StartCells.push_back(cell(x,y));
                 }
                 MapTable[x][y] = WALL;
@@ -40,7 +38,6 @@ void MazeDig::InitMazeDig()
 
 void MazeDig::Dig(int x, int y)
 {
-
     while (true)
     {
         // 掘り進めることができる方向のリストを作成
@@ -86,8 +83,7 @@ void MazeDig::Dig(int x, int y)
     // どこにも掘り進められない場合、穴掘り開始候補座標から掘りなおし
           // 候補座標が存在しないとき、穴掘り完了
     cell startPos = GetStartCell();
-    if (startPos.xPos != -1||startPos.yPos != -1)
-    {
+    if (startPos.xPos != -1&&startPos.yPos != -1){
         Dig(startPos.xPos, startPos.yPos);
     }
 }
@@ -104,8 +100,7 @@ void MazeDig::CreateMaze()
     {
         for (int x = 0; x < width_; x++)
         {
-            if (x == 0 || y == 0 || x == width_ - 1 || y == height_ - 1)
-            {
+            if (x == 0 || y == 0 || x == width_ - 1 || y == height_ - 1){
                 MapTable[x][y] = WALL;
             }
         }
@@ -115,8 +110,7 @@ void MazeDig::CreateMaze()
 void MazeDig::SetFloor(int x, int y)
 {
     MapTable[x][y] = FLOOR;
-    if (x % 2 == 1 && y % 2 == 1)
-    {
+    if (x % 2 == 1 && y % 2 == 1){
         // 穴掘り候補座標
        StartCells.push_back({ x, y });
     }
